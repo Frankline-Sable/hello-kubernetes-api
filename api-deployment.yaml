@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: hello-api
-          image: hello-api:v4
+          image: hello-api:v6
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
@@ -28,9 +28,12 @@ spec:
             - configMapRef:
                 name: hello-api-config
 
+            - secretRef:
+                name: hello-api-secret
+
           readinessProbe:
             httpGet:
-              path: /health/broken
+              path: /health/ready
               port: 3000
             initialDelaySeconds: 2
             periodSeconds: 5
