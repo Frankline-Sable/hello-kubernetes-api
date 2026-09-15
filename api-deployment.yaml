@@ -23,3 +23,18 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
+
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 3000
+            initialDelaySeconds: 2
+            periodSeconds: 5
+
+
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 3000
+            initialDelay: 5
+            periodSeconds: 10
