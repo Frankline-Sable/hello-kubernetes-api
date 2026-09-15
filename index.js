@@ -10,19 +10,20 @@ app.get('/', (req, res) => {
         }
     );
 });
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`API running on port ${PORT}`);
-});
 
-app.get("/heath/alive", (req, res) => {
+app.get("/health/live", (req, res) => {
     res.status(200).json({
         status: 'alive'
     });
 });
 
 
-app.get("/heath/ready", (req, res) => {
+app.get("/health/ready", (req, res) => {
     res.status(200).json({
         status: 'ready'
     });
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`API running on port ${PORT}`);
 });

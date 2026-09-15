@@ -19,14 +19,14 @@ spec:
     spec:
       containers:
         - name: hello-api
-          image: hello-api:v2
+          image: hello-api:v4
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
 
           readinessProbe:
             httpGet:
-              path: /health/ready
+              path: /health/broken
               port: 3000
             initialDelaySeconds: 2
             periodSeconds: 5
@@ -36,5 +36,5 @@ spec:
             httpGet:
               path: /health/live
               port: 3000
-            initialDelay: 5
+            initialDelaySeconds: 5
             periodSeconds: 10
