@@ -14,8 +14,15 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log(`API running on port ${PORT}`);
 });
 
-app.get("/heath",(req,res)=>{
+app.get("/heath/alive", (req, res) => {
     res.status(200).json({
-        status:'healthy'
+        status: 'alive'
+    });
+});
+
+
+app.get("/heath/ready", (req, res) => {
+    res.status(200).json({
+        status: 'ready'
     });
 });
