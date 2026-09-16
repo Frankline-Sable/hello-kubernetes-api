@@ -8,3 +8,6 @@ data:
   APP_ENV: "development"
   LOG_LEVEL: "debug"
   APP_MESSAGE: "Hello Franklin, update  from kubernetes ConfigMap"
+
+  DATABASE_HOST: "postgres-service"
+  DATABASE_PORT: "5432"
