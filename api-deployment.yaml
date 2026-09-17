@@ -19,6 +19,7 @@ spec:
     spec:
       containers:
         - name: hello-api
+
           image: hello-api:v6
           imagePullPolicy: Never
           ports:
@@ -45,3 +46,11 @@ spec:
               port: 3000
             initialDelaySeconds: 5
             periodSeconds: 10
+
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
