@@ -15,8 +15,10 @@ spec:
 
   metrics:
     - type: Resource
-      target:
-        type: Utilization
-        averageUtilization: 80
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
 
 # kubectl autoscale deployment hello-api --cpu=80% --min=2 --max=10
