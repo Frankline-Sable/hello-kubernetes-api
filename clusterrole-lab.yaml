@@ -1,0 +1,22 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: pod-reader-global
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: api-reader-production
+  namespace: production
+subjects:
+  - kind: ServiceAccount
+    name: api-reader
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: pod-reader-global
+  apiGroup: rbac.authorization.k8s.io
