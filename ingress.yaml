@@ -1,6 +1,5 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-
 metadata:
   name: hello-api-ingress
 
@@ -16,5 +15,16 @@ spec:
             backend:
               service:
                 name: hello-api-service
+                port:
+                  number: 80
+
+    - host: admin.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: admin-service
                 port:
                   number: 80
